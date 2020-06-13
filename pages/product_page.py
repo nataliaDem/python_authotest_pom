@@ -17,3 +17,11 @@ class ProductPage(BasePage):
         name_cart = self.browser.find_element(*ProductPageLocators.NAME_CART).text
         name = self.browser.find_element(*ProductPageLocators.NAME).text
         assert name == name_cart
+
+    def should_not_be_success_message(self):
+        assert not self.is_element_present(*ProductPageLocators.NAME_CART), \
+            "Success message is presented"
+
+    def should_disappear_success_message(self):
+        assert not self.is_disappeared(*ProductPageLocators.NAME_CART), \
+            "Success message disappears"
