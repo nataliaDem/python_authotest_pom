@@ -64,3 +64,7 @@ class BasePage:
     def go_to_cart(self):
         cart_btn = self.browser.find_element(*BasePageLocators.CART_BTN)
         cart_btn.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            "User icon is not presented, probably unauthorised user"
